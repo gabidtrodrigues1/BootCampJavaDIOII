@@ -1,0 +1,49 @@
+### Criar transação no mercado
+POST http://localhost:8080/transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Compra no mercado",
+  "valorEmCentavos": 15000,
+  "categoria": "MERCADO"
+}
+
+### Criar transação na farmácia
+POST http://localhost:8080/transacoes
+Content-Type: application/json
+
+{
+  "descricao": "Remédio",
+  "valorEmCentavos": 2500,
+  "categoria": "FARMACIA"
+}
+
+### Listar todas as transações
+GET http://localhost:8080/transacoes
+
+### Listar transações por categoria
+GET http://localhost:8080/transacoes/categoria/MERCADO
+
+### Consultar resumo financeiro
+GET http://localhost:8080/transacoes/resumo
+
+### Criar transação inválida
+POST http://localhost:8080/transacoes
+Content-Type: application/json
+
+{
+  "descricao": "",
+  "valorEmCentavos": 0,
+  "categoria": "MERCADO"
+}
+
+### Processar áudio com IA
+POST http://localhost:8080/transacoes/ia
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="audio.m4a"
+Content-Type: audio/mp4
+
+< ./audio.m4a
+--WebAppBoundary--
